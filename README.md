@@ -118,4 +118,7 @@ The frontend communicates with a RESTful backend API that provides:
 
 Ahmed Rashed
 
-Full-Stack Developer
+Software Engineer | Full-Stack Developer
+
+LinkedIn: linkedin.com/in/ahmed-hosam-rashed
+GitHub: https://github.com/ahmedrashedcs
