@@ -273,7 +273,7 @@ if ($method == 'GET') {
             $newAvgRate = (($vote_average * $vote_count) + $nRating) / ($vote_count + 1);
 
             // now we insert the completedWatchList database with the the new user's rating and ->
-            query("INSERT INTO `completedWatchList`(`movieID`, `userID`, `rating`, `notes`, `initial_watch`, `last_watch`, `watch_num`) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)", [$movieID, $userID, $nRating, $notes]);
+            query("INSERT INTO `completedWatchList`(`movieID`, `userID`, `rating`, `notes`, `initial_watch`, `last_watch`, `watch_num`) VALUES (?, ?, ?, ?, datetime('now'), datetime('now'), 1)", [$movieID, $userID, $nRating, $notes]);
 
             // we update the movies table by Inserting the calculated vote average and incrementing Vote count
             query("UPDATE movies SET vote_average = ?, vote_count = ? WHERE movieID = ?", [$newAvgRate, ($vote_count + 1), $movieID]);
@@ -282,7 +282,7 @@ if ($method == 'GET') {
             json_response(200, array("message" => "Insert successful"));
         } else {
             //we just insert if the new rating is 0 no updating in the movie db
-            query("INSERT INTO `completedWatchList`(`movieID`, `userID`, `rating`, `notes`, `initial_watch`, `last_watch`, `watch_num`) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)", [$movieID, $userID, $nRating, $notes]);
+            query("INSERT INTO `completedWatchList`(`movieID`, `userID`, `rating`, `notes`, `initial_watch`, `last_watch`, `watch_num`) VALUES (?, ?, ?, ?, datetime('now'), datetime('now'), 1)", [$movieID, $userID, $nRating, $notes]);
 
             // success code with a message
             json_response(200, array("message" => "Insert successful"));
@@ -411,7 +411,7 @@ if ($method == 'GET') {
         $user =  apiCheck($_SERVER['HTTP_X_API_KEY']);
         $movieID = $matches[1];
 
-        query("UPDATE `completedWatchList` SET last_watch = NOW(), watch_num = watch_num + 1 WHERE movieID = ? AND userID = ?", [$movieID, $user['userID']]);
+        query("UPDATE `completedWatchList` SET last_watch = datetime('now'), watch_num = watch_num + 1 WHERE movieID = ? AND userID = ?", [$movieID, $user['userID']]);
 
         // success code with a message
         json_response(200, array("message" => "Update was successful"));

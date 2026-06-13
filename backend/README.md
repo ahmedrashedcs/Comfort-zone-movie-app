@@ -1,6 +1,18 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ZqXQuTna)
 # COIS 3430 - Assignment #2
 
+## SQLite Setup
+
+This project is configured to use a local SQLite database file at `backend/database/app.sqlite`.
+
+Initialize the database schema with:
+
+```bash
+sqlite3 backend/database/app.sqlite < backend/database/schema.sql
+```
+
+After that, import your movie-related seed data into the SQLite tables locally. Keep the `.sqlite` file and any provided CSV data out of Git.
+
 For this assignment you are going to build your own back-end API, along with a couple of self-processing php pages for account creation/authentication. In assignment 3 we'll use the front-end framework in conjunction with your back-end api to complete a full application.
 
 ## Partner Work
