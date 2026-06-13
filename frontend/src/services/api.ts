@@ -7,14 +7,23 @@ import type {
   Movie,
 } from "../types/types";
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL.replace(/\/+$/, "");
+const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+const apiBaseUrl = rawApiBaseUrl ? rawApiBaseUrl.replace(/\/+$/, "") : "";
 
 const api = axios.create({
-  baseURL: `${apiBaseUrl}/`,
+  baseURL: apiBaseUrl ? `${apiBaseUrl}/` : "/",
   headers: {
     "Content-Type": "application/json",
   },
 });
+
+function ensureArray<T>(value: unknown, endpoint: string): T[] {
+  if (Array.isArray(value)) {
+    return value as T[];
+  }
+
+  throw new Error(`Expected an array response from ${endpoint}`);
+}
 
 export async function login(username: string, password: string): Promise<User> {
   const res = await api.post<User>("users/session", { username, password });
@@ -36,9 +45,8 @@ export async function getAllMovies(page: number = 1, sort?: string, search?: str
     url += `&search=${search}`;
   }
 
-
   const res = await api.get<MovieSummary[]>(url);
-  return res.data;
+  return ensureArray<MovieSummary>(res.data, url);
 }
 
 export async function getMovieById(id: number): Promise<Movie> {
@@ -50,7 +58,7 @@ export async function getWatchlist(apiKey: string): Promise<WatchlistEntry[]> {
   const res = await api.get<WatchlistEntry[]>("towatchlist/entries", {
     headers: { "X-API-KEY": apiKey },
   });
-  return res.data;
+  return ensureArray<WatchlistEntry>(res.data, "towatchlist/entries");
 }
 
 export async function addToWatchlist(
@@ -104,7 +112,7 @@ export async function getCompleted(apiKey: string): Promise<CompletedEntry[]> {
   const res = await api.get<CompletedEntry[]>("completedwatchlist/entries", {
     headers: { "X-API-KEY": apiKey },
   });
-  return res.data;
+  return ensureArray<CompletedEntry>(res.data, "completedwatchlist/entries");
 }
 
 export async function getTimesWatched(
@@ -118,9 +126,14 @@ export async function getTimesWatched(
     }
   );
 
-  if (res.data.length === 0) return 0;
+  const data = ensureArray<{ movieID: number; watch_num: number }>(
+    res.data,
+    `completedwatchlist/entries/${movieID}/times-watched`
+  );
 
-  return res.data[0].watch_num ?? 0;
+  if (data.length === 0) return 0;
+
+  return data[0].watch_num ?? 0;
 }
 
 export async function addToCompleted(

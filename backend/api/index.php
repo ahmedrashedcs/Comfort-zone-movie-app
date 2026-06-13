@@ -20,7 +20,7 @@ if ($scriptDir !== '' && $scriptDir !== '/' && str_starts_with($path, $scriptDir
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-require_once('../includes/library.php');
+require_once __DIR__ . '/../includes/library.php';
 $pdo = connectdb();
 
 if ($method == 'GET') {

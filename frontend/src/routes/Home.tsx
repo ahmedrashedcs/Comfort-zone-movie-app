@@ -15,6 +15,7 @@ export function Home() {
   const [movies, setMovies] = useState<MovieSummary[]>([]);
   const [genre, setGenre] = useState("Family");
   const [sortBy, setSortBy] = useState("Popular");
+  const [error, setError] = useState("");
 
   const [watchlistMovies, setWatchlistMovies] = useState<WatchlistEntry[]>([]);
   const [completedMovies, setCompletedMovies] = useState<CompletedEntry[]>([]);
@@ -28,8 +29,10 @@ export function Home() {
           const all = await getAllMovies(1, sortBy, undefined, genre);
 
           setMovies(all.slice(0, 20));
+          setError("");
         } catch (err) {
           console.error("Failed to fetch movies:", err);
+          setError("Failed to load movies. Make sure the backend API is running and VITE_API_BASE_URL is set correctly.");
         }
       } else {
         try {
@@ -44,8 +47,10 @@ export function Home() {
           setWatchlistMovies(watchlist.slice(0, 10));
 
           setCompletedMovies(completed.slice(0, 10));
+          setError("");
         } catch (err) {
           console.error("Failed to fetch movies:", err);
+          setError("Failed to load movies. Make sure the backend API is running and VITE_API_BASE_URL is set correctly.");
         }
       }
     }
@@ -101,6 +106,7 @@ export function Home() {
       <h2>
         {sortBy} {genre} Movies
       </h2>
+      {error && <p className="center-text error">{error}</p>}
       <div className="movie-grid">
         {movies.map((movie) => (
           <MovieCard key={movie.movieID} movie={movie} />
