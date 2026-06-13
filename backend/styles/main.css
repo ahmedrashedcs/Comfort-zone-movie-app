@@ -1,0 +1,311 @@
+/* ==============================
+   Eric Meyer Reset v2.0 (Public Domain)
+   Cleaned & Organized
+   ============================== */
+
+/* ----- HTML5 Display Settings ----- */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/* ----- Reset All Elements ----- */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+canvas,
+output,
+ruby,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* ----- Lists, Quotes, Tables ----- */
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ----- Global Font ----- */
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ==============================
+   Project-Specific Styles
+   ============================== */
+
+/* ----- Header ----- */
+header {
+    text-align: center;
+    padding: 0.1em;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border-bottom: 1px solid #ddd;
+}
+/* ----- main ----- */
+main {
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    justify-content: center;
+}
+
+/* ----- Footer ----- */
+footer {
+    background-color: #030712;
+    color: #a2a99e;
+    font-weight: 400;
+    padding: 0.625em 12.5em;
+}
+
+/* ----- Utility Classes ----- */
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #A64BF3;
+}
+
+/* ----- Container ----- */
+.container {
+    background: #fff;
+    width: fit-content;
+    margin: 10px auto 50px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.2em, solid;
+    border-color: #b665a7;
+}
+
+/* ----- Title ----- */
+.login {
+    align-self: center;
+    margin-bottom: 25px;
+    color: #373d3f;
+}
+
+/* ----- Form Box Layout ----- */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+}
+
+/* ----- Labels ----- */
+.box label {
+    font-size: 10px;
+    font-weight: 400;
+    margin-bottom: 4.5px;
+}
+
+/* ----- Icons ----- */
+.fa-solid {
+    position: absolute;
+    font-size: 11px;
+    margin: 1px 0 8px 3px;
+    color: #bbb;
+}
+
+/* ----- Inputs ----- */
+#username,
+#email,
+#password,
+#password2,
+#API {
+    width: 93%;
+    padding: 0 0 5px 20px;
+    border: none;
+    border-bottom: 1px solid #bbb;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+#username::placeholder,
+#email::placeholder,
+#password::placeholder,
+#password2::placeholder {
+    color: #bbb;
+}
+
+#username:focus,
+#email:focus,
+#password:focus,
+#password2:focus,
+#API:hover {
+    border-bottom-color: #373d3f;
+    transition: border-color 0.2s ease;
+}
+
+/* Focused Label Color Change */
+.box #username:focus+[for="username"],
+.box #email:focus+[for="email"],
+.box #password:focus+[for="password"],
+.box #password2:focus+[for="password2"],
+.box #API:hover+[for="API"] {
+    color: #A64BF3;
+    transition: color 0.2s ease;
+}
+
+/* ----- Forgot/Prompt Links ----- */
+.forget {
+    align-self: flex-end;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.container a, button.centered{
+    font-weight: 600;
+    color: #373d3f;
+}
+
+.container a:hover, button.centered{
+    color: #FC04FE;
+}
+
+/* ----- Buttons ----- */
+#submit, #logout {
+    margin: 18px 0;
+    padding: 8px 95px;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 10px;
+}
+
+#submitL{
+    margin: 18px 0;
+    padding: 8px 95px;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 10px;
+    width: 100%;
+}
+
+button.centered{
+    background: none;
+    align-self: left;
+    border: none;
+}
+
+/* ----- Misc Text ----- */
+
+.have_Account, .centered {
+    font-size: 11px;
+}
+
+p {
+    width: 35rem;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+ul{
+    list-style-type: circle;
+    width: 35rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
