@@ -1,0 +1,152 @@
+.watchlist-card {
+  display: flex;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.watchlist-card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.poster {
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 1rem;
+  height: 281px;
+  width: 190px;
+}
+
+.watchlist-poster-div {
+  height: 281px;
+  width: 206px;
+}
+
+.w-details {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.w-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.overview {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.rating-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rating {
+  font-weight: bold;
+  color: rgb(3, 181, 3);
+  margin: 0.3em 0;
+}
+
+.rating span {
+  color: black;
+}
+
+.your-rating {
+  font-weight: bold;
+  color: rgb(3, 181, 3);
+}
+
+.your-rating span {
+  color: black;
+}
+
+.remove-btn {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 10em;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.watchlist-card label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.watchlist-card select {
+  margin-top: 0.3rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.watchlist-card select:hover {
+  border-color: #919090;
+}
+
+.watchlist-card select:focus {
+  outline: none;
+  border-color: #515151;
+}
+
+.card-link {
+  text-decoration: none;
+  color: unset;
+  margin-top: 0;
+  font-size: unset;
+  font-weight: unset;
+}
+
+.card-link:hover {
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.watched {
+  margin: 1.2em 0;
+  padding: 1em 5em;
+  background-image: linear-gradient(90deg, #03d5df, #f356f8);
+  border: none;
+  border-radius: 35px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+  width: 49%;
+}
+
+.btn div {
+  width: 49%;
+}

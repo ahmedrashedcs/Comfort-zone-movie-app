@@ -1,0 +1,64 @@
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  position: fixed;
+  top: 1.18em;
+  right: 1.2em;
+  z-index: 1000;
+  gap: 0.9em;
+}
+
+.search-bar button{
+    padding: 0.4em 2em;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.search-bar div{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  width: 15em;
+}
+
+.search-bar div input {
+  width: 93%;
+  padding: 0 0 4px 20px;
+  border: none;
+  border-bottom: 1px solid #bbb;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  color: #fff;
+}
+
+.search-bar div input::placeholder {
+  color: #bbb;
+}
+
+.search-bar div input:focus {
+  border-bottom-color: #1de9b6;
+  transition: border-color 0.2s ease;
+}
+
+.search-bar div input:focus + .fa-solid {
+  color: #1de9b6;
+  transition: color 0.2s ease;
+}
+
+.fa-solid {
+  position: absolute;
+  font-size: 0.9em;
+  margin: 1px 0 7px 3px;
+  color: #bbb;
+}

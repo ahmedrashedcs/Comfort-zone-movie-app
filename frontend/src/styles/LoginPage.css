@@ -1,0 +1,105 @@
+.container {
+    background: #fff;
+    width: 30em;
+    margin: 10px auto 50px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 0.2em solid #b665a7;
+}
+
+.login {
+    align-self: center;
+    margin-bottom: 25px;
+    color: #373d3f;
+}
+
+.box {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.container h2{
+    font-size: 2em;
+
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 93%;
+    padding: 0 0 5px 20px;
+    border: none;
+    border-bottom: 1px solid #bbb;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+input:focus {
+    border-bottom-color: #373d3f;
+    transition: border-color 0.2s ease;
+}
+
+label {
+    font-size: 1.1em;
+    font-weight: 350;
+    margin-bottom: 4.5px;
+}
+
+.fa-solid {
+    position: absolute;
+    font-size: 11px;
+    margin: 1px 0 8px 3px;
+    color: #bbb;
+}
+
+input:focus + label {
+    color: #A64BF3;
+    transition: color 0.2s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #A64BF3;
+}
+
+.container button {
+    margin: 18px 0;
+    padding: 8px 95px;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.container a {
+    font-weight: 600;
+    color: #373d3f;
+    font-size: 11px;
+    text-decoration: none;
+    margin-top: 8px;
+}
+
+.container a:hover {
+    color: #FC04FE;
+}
+
+.box #username:focus+.fa-solid,
+.box #password:focus+.fa-solid{
+    color: #A64BF3;
+    transition: color 0.2s ease;
+}

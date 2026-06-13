@@ -8,9 +8,6 @@ RewriteEngine On
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
-#set the base directory for rewrite to the folder your api is in
-RewriteBase /~ahmedrashed/3430/assn/assn2-AhmedRashed2004-1/api/
-
 #deliver the folder of file directly if it exists
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

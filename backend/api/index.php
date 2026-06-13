@@ -8,12 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-$uri = $_SERVER['REQUEST_URI'];
-
 $uri = parse_url($_SERVER['REQUEST_URI']);
+$scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+$path = $uri['path'] ?? '';
 
-define('__BASE__', '/~ahmedrashed/3430/assn/assn2-AhmedRashed2004-1/api/');
-$endpoint = str_replace(__BASE__, "", $uri["path"]);
+if ($scriptDir !== '' && $scriptDir !== '/' && str_starts_with($path, $scriptDir)) {
+    $endpoint = ltrim(substr($path, strlen($scriptDir)), '/');
+} else {
+    $endpoint = ltrim($path, '/');
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -433,11 +436,10 @@ if ($method == 'GET') {
         $notes = $requestData['notes'] ?? "";
 
         query("INSERT INTO `toWatchList`(`movieID`, `userID`, `priority`, `notes`) 
-        VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
-        movieID = VALUES(movieID), 
-        userID = VALUES(userID), 
-        priority = VALUES(priority), 
-        notes = VALUES(notes)", [$movieID, $user['userID'], $priority, $notes]);
+        VALUES (?, ?, ?, ?)
+        ON CONFLICT(movieID, userID) DO UPDATE SET
+        priority = excluded.priority,
+        notes = excluded.notes", [$movieID, $user['userID'], $priority, $notes]);
 
         // success code with a message
         json_response(200, array("message" => "Change Made"));

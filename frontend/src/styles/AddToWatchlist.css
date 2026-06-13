@@ -1,0 +1,11 @@
+.add-watch-list-button{
+    margin: 1.2em 0;
+    padding: 1em 5em;
+    background-image: linear-gradient(90deg, #03D5DF, #f356f8);
+    border: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    width: 100%;
+}
